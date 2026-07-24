@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The God You Almost Know · Equipping · CCCC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/shared.css">
+<style>
+
+/* ── READER PAGE STYLES ── */
+/* Copy this file for every new read-up. Only change content, not structure. */
+.page-body { padding-top: var(--nav-h); }
+
+/* ── BREADCRUMB ── */
+.reader-breadcrumb {
+  background: var(--black);
+  border-bottom: 1px solid rgba(196,146,42,.08);
+  padding: .65rem 2rem;
+}
+.reader-breadcrumb-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+}
+.reader-breadcrumb a {
+  color: var(--gold);
+  text-decoration: none;
+  opacity: .7;
+  transition: opacity .15s;
+}
+.reader-breadcrumb a:hover { opacity: 1; }
+.reader-breadcrumb-sep { opacity: .3; font-size: 9px; }
+
+/* ── READER HEADER ── */
+.reader-header {
+  background: var(--dark);
+  padding: 3.5rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 0px solid rgba(196,146,42,.12);
+}
+.reader-header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C4922A' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.reader-header::after {
+  content: '"';
+  position: absolute; right: 3rem; bottom: -2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 220px; line-height: 1;
+  color: rgba(196,146,42,.05);
+  pointer-events: none;
+}
+.reader-header-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.reader-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .85rem;
+}
+.reader-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 400; color: #F5EDDA;
+  line-height: 1.1; margin-bottom: .65rem;
+}
+.reader-source {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic;
+  color: rgba(255,255,255,.38); margin-bottom: 2rem;
+}
+.reader-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem;
+}
+.reader-meta-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 3px;
+  background: rgba(196,146,42,.12);
+  color: var(--gold);
+  border: 1px solid rgba(196,146,42,.25);
+}
+.reader-meta-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+}
+.reader-meta-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  color: rgba(255,255,255,.3);
+  letter-spacing: .06em;
+}
+
+/* ── READER BODY ── */
+.reader-body-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 6rem;
+}
+
+/* ── UNIT SECTIONS ── */
+.unit {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--bdr2);
+}
+.unit:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.unit-header {
+  display: flex;
+  align-items: baseline;
+  gap: .85rem;
+  margin-bottom: 1.1rem;
+}
+.unit-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold);
+  white-space: nowrap; padding-top: 2px;
+}
+.unit-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 500;
+  color: var(--ink); line-height: 1.25;
+}
+.unit-body p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 400;
+  color: var(--ink2); margin-bottom: 1.1rem;
+  line-height: 1.82;
+}
+.unit-body p:last-child { margin-bottom: 0; }
+.unit-body strong { color: var(--ink); font-weight: 600; }
+
+/* ── SCRIPTURE PULL ── */
+.scripture {
+  margin: 1.75rem 0;
+  padding: 1.1rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  background: var(--gold-bg);
+  border-radius: 0 6px 6px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 17px;
+  color: var(--ink2); line-height: 1.78;
+}
+.scripture cite {
+  display: block; font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink3);
+  margin-top: .55rem;
+}
+
+/* ── PRINCIPLE BOX ── */
+.principle {
+  margin-top: 1.35rem;
+  padding: 1rem 1.35rem;
+  background: var(--gold-bg);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 400;
+  color: var(--ink2); line-height: 1.75;
+}
+.principle strong {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: .35rem; font-weight: 700;
+  font-style: normal;
+}
+
+/* ── METHOD SUMMARY ── */
+.method-summary {
+  background: var(--off);
+  border: 1px solid var(--bdr2);
+  border-radius: 8px;
+  padding: 1.75rem 2rem;
+  margin: 2.75rem 0;
+}
+.method-summary-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--ink3);
+  margin-bottom: 1.35rem;
+}
+.method-steps {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+.method-step {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; color: var(--ink2);
+  line-height: 1.7;
+}
+.method-step-num {
+  font-family: 'Cinzel', serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--gold); min-width: 22px;
+  line-height: 1.55; flex-shrink: 0;
+}
+
+/* ── REFLECT + PRACTICE ── */
+.engage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+@media (max-width: 600px) {
+  .engage-grid { grid-template-columns: 1fr; }
+}
+.engage-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--bdr2);
+}
+.engage-card.reflect  { background: #eef4f7; border-color: #c8dde6; }
+.engage-card.practice { background: #eaf3ee; border-color: #bdd8c8; }
+.engage-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: .65rem; font-weight: 700;
+  display: block;
+}
+.engage-card.reflect  .engage-label { color: #3a6878; }
+.engage-card.practice .engage-label { color: #2d6b50; }
+.engage-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; line-height: 1.7;
+  color: var(--ink2); margin: 0;
+}
+
+/* ── BACK LINK ── */
+.reader-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  margin-bottom: 3rem;
+  opacity: .75;
+  transition: opacity .15s;
+}
+.reader-back:hover { opacity: 1; }
+.reader-back svg { width: 14px; height: 14px; }
+
+/* ── FOOTER NAV ── */
+.reader-footer-nav {
+  background: var(--off);
+  border-top: 1px solid var(--bdr2);
+  padding: 2rem;
+  text-align: center;
+}
+.reader-footer-nav p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic;
+  color: var(--ink3); margin-bottom: .85rem;
+}
+.reader-footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid rgba(196,146,42,.3);
+  padding: .55rem 1.1rem;
+  border-radius: 4px;
+  transition: background .15s;
+}
+.reader-footer-nav a:hover { background: rgba(196,146,42,.08); }
+
+</style>
+</head>
+<body class="page-body">
+
+<script src="/assets/nav-inject.js"></script>
+<script>injectNav({ page: 'equipping' });</script>
+
+<!-- BREADCRUMB -->
+<div class="reader-breadcrumb">
+  <div class="reader-breadcrumb-inner">
+    <a href="/equipping.html">Equipping</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="reader-header">
+  <div class="reader-header-inner">
+    <p class="reader-eyebrow">Witnessing Principle You Can Apply</p>
+    <h1 class="reader-title">The God You Almost Know</h1>
+    <p class="reader-source">Acts 17:16–34 — Paul in Athens</p>
+    <div class="reader-meta-row">
+      <span class="reader-meta-pill">Proclamation in public</span>
+      <span class="reader-meta-dot"></span>
+      <span class="reader-meta-text">7 Principles · Study questions included</span>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="reader-body-wrap">
+
+  <a class="reader-back" href="/equipping.html">
+    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to Equipping
+  </a>
+
+  <!-- I. THE SCENE -->
+  <section class="unit">
+    <div class="unit-header">
+      <span class="unit-label">I</span>
+      <h2 class="unit-title">The scene</h2>
+    </div>
+    <div class="unit-body">
+      <p>Athens was not a hostile crowd — it was an indifferent one, which in some ways is harder. The city was full of altars, shrines, and philosophical schools. It was a place where ideas competed openly and where a new voice could earn a hearing if it was interesting enough.</p>
+      <p>Paul arrived not as a visiting lecturer but as a tentmaker passing through. What he saw in the marketplace stirred something deep in him — the Greek word used is <em>paroxysm</em>, a sharp provocation of spirit. But what is remarkable is what he did with that feeling: he did not preach in anger. He went into the marketplace and started talking to whoever would listen.</p>
+      <p>It worked. He was curious enough that some philosophers brought him to the Areopagus — the formal public platform for debating new ideas — and asked him to explain himself. A man who started in a market stall ended up on the city's main stage.</p>
+    </div>
+  </section>
+
+  <!-- II. WHAT PAUL DID -->
+  <section class="unit">
+    <div class="unit-header">
+      <span class="unit-label">II</span>
+      <h2 class="unit-title">What Paul did</h2>
+    </div>
+    <div class="unit-body">
+      <p><strong>He let grief become compassion.</strong> The provocation Paul felt at the idolatry around him did not come out as accusation. Something converted it — likely the memory of his own encounter with grace — and what left his mouth was not correction but an invitation.</p>
+
+      <p><strong>He acknowledged what he saw in them.</strong> His opening line was not a rebuke. He observed that the Athenians were clearly people who took the question of God seriously. That single acknowledgment raised the room's attention before he said anything theological.</p>
+
+      <div class="scripture">
+        "Men of Athens, I perceive that in every way you are very religious. For as I passed along and observed the objects of your worship, I found also an altar with this inscription: 'To the unknown god.'"
+        <cite>Acts 17:22–23</cite>
+      </div>
+
+      <p><strong>He found the open door.</strong> Rather than attacking their idols, Paul pointed to a gap they had already admitted — an altar to a god they could not name. He used their own acknowledgment of the unknown as his entry point. He was not vague about where he was headed: he named his subject immediately.</p>
+
+      <p><strong>He reasoned from Scripture without quoting it directly.</strong> Paul's speech is soaked in Genesis. The God who "made the world and everything in it," who "does not live in temples made by hands," who "gives to all mankind life and breath" — this is the Creator of Genesis 1 and 2, brought forward into Athenian vocabulary. Paul was not inventing a new theology for his audience; he was translating the Scripture they had never read into categories they already understood.</p>
+
+      <p><strong>He reasoned toward an undeniable conclusion.</strong> From the premise that God made everything and needs nothing from creation, Paul drew the logical consequence: creatures are not self-sufficient. If creatures depend on a Creator for life and breath and everything, the right movement is back toward that Creator — for meaning, identity, and purpose.</p>
+
+      <p><strong>He honored what was true in their world.</strong> Quoting the philosopher Aratus — "For we are indeed his offspring" — Paul did not destroy the Athenians' existing framework. He found the true thing buried inside it and held it up to the light. This was not compromise. It was an act of intellectual generosity that completed rather than demolished.</p>
+
+      <p><strong>He landed at repentance, Christ, and the resurrection.</strong> After the entire arc — empathy, the unknown God, creation, dependence, seeking — Paul brought it home: God commands all people everywhere to repent, because a day of judgment has been fixed. And the proof he offered was the resurrection of Jesus — which happened to be the very thing that had sparked the Athenians' curiosity in the first place.</p>
+    </div>
+  </section>
+
+  <!-- III. PRINCIPLES -->
+  <section class="unit">
+    <div class="unit-header">
+      <span class="unit-label">III</span>
+      <h2 class="unit-title">The principles</h2>
+    </div>
+    <div class="unit-body">
+      <div class="principle"><strong>Principle 1</strong>The messenger's internal grief must become outward compassion before the mouth opens. How you feel about sin is not your message — how God feels about people is.</div>
+      <div class="principle"><strong>Principle 2</strong>The listener must feel seen before they can truly hear. Strategic empathy is not flattery — it is the honest acknowledgment of what a person is already reaching for.</div>
+      <div class="principle"><strong>Principle 3</strong>Effective proclamation finds the open door the listener doesn't know they've left open. Look for the gap, the question, the unnamed longing — and name it for them.</div>
+      <div class="principle"><strong>Principle 4</strong>The Word drives the proclamation even when it is not quoted by chapter and verse. Scripture is the spine, not the decoration.</div>
+      <div class="principle"><strong>Principle 5</strong>The Gospel can bear the weight of logical scrutiny. Do not be afraid to reason with your listener. A well-ordered argument is not a lack of faith — it is love taking the listener seriously.</div>
+      <div class="principle"><strong>Principle 6</strong>Look for what is true in the listener's world before pointing to what is missing. Honor the real thing before correcting the broken one.</div>
+      <div class="principle"><strong>Principle 7</strong>End at the cross and the resurrection. Everything before it is preparation, not destination.</div>
+    </div>
+  </section>
+
+  <!-- METHOD SUMMARY -->
+  <div class="method-summary">
+    <p class="method-summary-title">Paul's method at a glance — Engaged Proclamation</p>
+    <div class="method-steps">
+      <div class="method-step"><span class="method-step-num">1</span><span>Let grief become compassion — the right interior posture before you speak</span></div>
+      <div class="method-step"><span class="method-step-num">2</span><span>See the person before speaking to them — strategic empathy</span></div>
+      <div class="method-step"><span class="method-step-num">3</span><span>Find the open door — the bridge point already present in their world</span></div>
+      <div class="method-step"><span class="method-step-num">4</span><span>Anchor in Scripture — even when invisible, the Word is the spine</span></div>
+      <div class="method-step"><span class="method-step-num">5</span><span>Reason toward the conclusion — from premise to undeniable implication</span></div>
+      <div class="method-step"><span class="method-step-num">6</span><span>Honor what is true in their world — cultural empathy, not cultural capitulation</span></div>
+      <div class="method-step"><span class="method-step-num">7</span><span>Call to repentance through Christ — the non-negotiable landing point</span></div>
+    </div>
+  </div>
+
+  <!-- IV & V. REFLECT + PRACTICE -->
+  <section class="unit">
+    <div class="unit-header">
+      <span class="unit-label">IV &amp; V</span>
+      <h2 class="unit-title">Reflect and practice</h2>
+    </div>
+    <div class="engage-grid">
+      <div class="engage-card reflect">
+        <span class="engage-label">Reflect</span>
+        <p>Think of someone in your life who seems spiritually indifferent or unreachable. What is the "altar to an unknown god" in their life — the gap or longing they've already admitted, even without realizing it? How might that become a door?</p>
+      </div>
+      <div class="engage-card practice">
+        <span class="engage-label">Practice this week</span>
+        <p>Have one conversation where you ask before you tell. Ask someone what they think gives life meaning, or what they are afraid of losing. Listen fully. Notice what door they leave open — and write it down afterward.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- END READER BODY -->
+
+<!-- FOOTER NAV -->
+<div class="reader-footer-nav">
+  <p>Continue exploring the Equipping library.</p>
+  <a href="/equipping.html">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to Equipping
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="foot-brand">EQUIPPING · CCCC</div>
+      <p class="foot-desc">"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses." — Acts 1:8</p>
+    </div>
+    <div>
+      <div class="foot-col-title">Navigation</div>
+      <ul class="foot-links">
+        <li><a href="/">← Vision Document</a></li>
+        <li><a href="/equipping.html">← Equipping Library</a></li>
+        <li><a href="/updates">Updates</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">Equipping</div>
+      <ul class="foot-links">
+        <li><a href="/equipping/the-god-you-almost-know.html">Witnessing Principle You Can Apply</a></li>
+        <li><a href="#" style="opacity:.4">Lessons 2–8 — Coming soon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>Christ-Centered Community Church · Bacolod City, Philippines · Soli Deo Gloria</p>
+    <p class="foot-verse">"The least of you will become a thousand." — Isa. 60:22</p>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+
+</body>
+</html>

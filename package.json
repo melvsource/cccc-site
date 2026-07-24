@@ -1,0 +1,16 @@
+{
+  "name": "cccc-vision1000",
+  "version": "1.0.0",
+  "description": "Christ-Centered Community Church — Vision 1,000 site",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "marked": "^9.1.6"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

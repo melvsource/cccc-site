@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources · CCCC Vision 1,000</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/shared.css">
+<style>
+.page-body { padding-top: var(--nav-h); }
+
+/* HERO */
+.res-hero {
+  background: var(--dark);
+  padding: 64px 2rem 56px;
+  position: relative; overflow: hidden;
+}
+.res-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent);
+}
+.res-hero-inner { max-width: var(--wide); margin: 0 auto; }
+.res-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px); font-weight: 300;
+  color: #F5EDDA; line-height: 1.05; margin-bottom: .35rem;
+}
+.res-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-style: italic; color: rgba(240,234,214,.42);
+}
+
+/* MAIN LAYOUT */
+.res-wrap {
+  max-width: var(--wide); margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+  display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start;
+}
+@media (max-width: 860px) { .res-wrap { grid-template-columns: 1fr; } }
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.25rem; padding-bottom: .65rem;
+  border-bottom: 1px solid var(--bdr2);
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent); opacity: .3;
+}
+
+/* RESOURCE CATEGORY */
+.res-category { margin-bottom: 3rem; }
+.res-category:last-child { margin-bottom: 0; }
+
+/* PDF DOWNLOAD CARD */
+.pdf-list { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+.pdf-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: var(--white); border: 1px solid var(--bdr2);
+  border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.4rem; text-decoration: none;
+  transition: border-left-color .2s, background .2s, transform .2s;
+}
+.pdf-card:hover {
+  border-left-color: var(--gold2); background: var(--gold-bg);
+  transform: translateX(3px);
+}
+.pdf-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(196,146,42,.1); border: 1px solid rgba(196,146,42,.2);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700;
+  letter-spacing: .06em; color: var(--gold); text-transform: uppercase;
+}
+.pdf-info { flex: 1; min-width: 0; }
+.pdf-name {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--ink); margin-bottom: .2rem; line-height: 1.3;
+}
+.pdf-desc {
+  font-family: 'Cormorant Garamond', serif; font-size: 14px;
+  color: var(--ink3); line-height: 1.5;
+}
+.pdf-meta {
+  font-family: 'Inter', sans-serif; font-size: 9.5px; color: var(--ink3);
+  white-space: nowrap; flex-shrink: 0;
+}
+.pdf-card.placeholder {
+  opacity: .45; cursor: default; pointer-events: none;
+  border-left-color: var(--bdr);
+}
+.pdf-card.placeholder .pdf-icon { background: var(--off); color: var(--ink3); border-color: var(--bdr2); }
+
+/* LINK LIST */
+.link-list { display: flex; flex-direction: column; gap: .6rem; }
+.link-card {
+  display: flex; align-items: flex-start; gap: .9rem;
+  background: var(--white); border: 1px solid var(--bdr2);
+  border-radius: 8px; padding: 1rem 1.25rem; text-decoration: none;
+  transition: border-color .2s, transform .2s;
+}
+.link-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.link-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0; margin-top: 6px;
+}
+.link-body { flex: 1; }
+.link-name {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--ink); margin-bottom: .15rem;
+}
+.link-desc {
+  font-family: 'Cormorant Garamond', serif; font-size: 14.5px;
+  color: var(--ink2); line-height: 1.5;
+}
+.link-url {
+  font-family: 'Inter', sans-serif; font-size: 10px;
+  color: var(--gold); margin-top: .2rem; display: block;
+}
+.link-card.placeholder { opacity: .4; cursor: default; pointer-events: none; }
+
+/* SIDEBAR */
+.res-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.sidebar-widget { background: var(--white); border: 1px solid var(--bdr2); border-radius: 8px; overflow: hidden; }
+.sw-title {
+  background: var(--dark); padding: .85rem 1.25rem;
+  font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--gold2);
+}
+.sw-body { padding: 1.25rem; }
+.sw-body p {
+  font-family: 'Cormorant Garamond', serif; font-size: 15px;
+  font-style: italic; color: var(--ink2); line-height: 1.65; margin-bottom: .75rem;
+}
+.sw-body p:last-child { margin-bottom: 0; }
+.sw-body code {
+  font-family: monospace; font-size: 12px;
+  background: var(--off); color: var(--gold);
+  padding: 2px 7px; border-radius: 3px;
+  font-style: normal;
+}
+
+.jump-links { list-style: none; }
+.jump-links li { border-bottom: 1px solid var(--bdr2); }
+.jump-links li:last-child { border-bottom: none; }
+.jump-links a {
+  display: block; padding: .6rem 0;
+  font-family: 'Cormorant Garamond', serif; font-size: 16px;
+  color: var(--ink2); text-decoration: none; transition: color .18s;
+}
+.jump-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body class="page-body" style="background:var(--off)">
+
+<script src="/assets/nav-inject.js"></script>
+<script>injectNav({ page: 'resources' });</script>
+
+<!-- HERO -->
+<div class="res-hero">
+  <div class="res-hero-inner">
+    <div class="eyebrow">Resources</div>
+    <h1 class="res-hero-title">Downloads &amp; <em style="color:var(--gold2);font-style:normal">Links</em></h1>
+    <p class="res-hero-sub">Documents, PDFs, and curated links for the CCCC community and its friends.</p>
+  </div>
+</div>
+
+<div class="res-wrap">
+
+  <!-- MAIN CONTENT -->
+  <div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 1: VISION DOCUMENTS
+         To add a PDF: replace a placeholder card
+         Set href to "/assets/pdfs/your-file.pdf"
+         ══════════════════════════════════════ -->
+    <div class="res-category" id="vision-docs">
+      <div class="section-label">Vision Documents</div>
+      <div class="pdf-list">
+
+        <a class="pdf-card" href="/" target="_blank">
+          <div class="pdf-icon">WEB</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Vision 1,000 — Full Document</div>
+            <div class="pdf-desc">The complete biblical, theological, and organizational framework. Read online.</div>
+          </div>
+          <div class="pdf-meta">Online ↗</div>
+        </a>
+
+        <a class="pdf-card" href="/assets/pdfs/CCCCMembershipBooklet.pdf" target="_blank">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Vision 1,000 — Membership Booklet</div>
+            <div class="pdf-desc">Provides clarity on what entails being a member of CCCC.</div>
+          </div>
+          <div class="pdf-meta">Available ↗</div>
+        </a>
+
+        <!-- PLACEHOLDER -->
+        <a class="pdf-card placeholder" href="#">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Abad &amp; Shamar — Study Guide</div>
+            <div class="pdf-desc">A small-group study guide on the creation-order framework at the heart of CCCC's vision.</div>
+          </div>
+          <div class="pdf-meta">Coming soon</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 2: EQUIPPING MATERIALS
+         ══════════════════════════════════════ -->
+    <div class="res-category" id="equipping">
+      <div class="section-label">Equipping Materials</div>
+      <div class="pdf-list">
+
+        <a class="pdf-card" href="/equipping">
+          <div class="pdf-icon">WEB</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Witnesses — Lesson 1: The God You Almost Know</div>
+            <div class="pdf-desc">Paul in Athens — Acts 17. The full lesson on engaged proclamation in public. Read online.</div>
+          </div>
+          <div class="pdf-meta">Online ↗</div>
+        </a>
+
+        <!-- PLACEHOLDER — add PDF version of Lesson 1 when ready -->
+        <a class="pdf-card placeholder" href="#">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Witnesses Lesson 1 — Printable Worksheet</div>
+            <div class="pdf-desc">The reflect and practice section from Lesson 1, formatted for personal or group use.</div>
+          </div>
+          <div class="pdf-meta">Coming soon</div>
+        </a>
+
+        <!-- PLACEHOLDER -->
+        <a class="pdf-card placeholder" href="#">
+          <div class="pdf-icon">PDF</div>
+          <div class="pdf-info">
+            <div class="pdf-name">Witnesses — Course Overview &amp; Lesson Map</div>
+            <div class="pdf-desc">A one-page map of all nine lessons, their NT texts, and core themes.</div>
+          </div>
+          <div class="pdf-meta">Coming soon</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: EXTERNAL LINKS
+         To add a link: copy a link-card block,
+         set href, name, desc, and link-url
+         ══════════════════════════════════════ -->
+    <div class="res-category" id="links">
+      <div class="section-label">Recommended Links</div>
+      <div class="link-list">
+
+        <!-- PLACEHOLDER — add real links here -->
+        <a class="link-card placeholder" href="#">
+          <div class="link-dot"></div>
+          <div class="link-body">
+            <div class="link-name">Recommended Resource Placeholder</div>
+            <div class="link-desc">Replace this with a Bible study tool, theological resource, or ministry website that CCCC endorses.</div>
+            <span class="link-url">website.com</span>
+          </div>
+        </a>
+
+        <a class="link-card placeholder" href="#">
+          <div class="link-dot"></div>
+          <div class="link-body">
+            <div class="link-name">Recommended Resource Placeholder</div>
+            <div class="link-desc">Another link you want to commend to the community — a podcast, a book, a free course.</div>
+            <span class="link-url">website.com</span>
+          </div>
+        </a>
+
+        <a class="link-card placeholder" href="#">
+          <div class="link-dot"></div>
+          <div class="link-body">
+            <div class="link-name">Recommended Resource Placeholder</div>
+            <div class="link-desc">A third recommended link. Remove the <code>placeholder</code> class and set the <code>href</code> when it's ready.</div>
+            <span class="link-url">website.com</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <!-- SIDEBAR -->
+  <div class="res-sidebar">
+
+    <div class="sidebar-widget">
+      <div class="sw-title">Jump to</div>
+      <div class="sw-body">
+        <ul class="jump-links">
+          <li><a href="#vision-docs">Vision Documents</a></li>
+          <li><a href="#equipping">Equipping Materials</a></li>
+          <li><a href="#links">Recommended Links</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="sw-title">How to add a PDF</div>
+      <div class="sw-body">
+        <p>Place your PDF in <code>public/assets/pdfs/</code>. Then open <code>resources.html</code>, find a placeholder card, remove the <code>placeholder</code> class, and set <code>href="/assets/pdfs/your-file.pdf"</code>. Change the name and description. Save and push to GitHub.</p>
+      </div>
+    </div>
+
+    <div class="sidebar-widget">
+      <div class="sw-title">How to add a link</div>
+      <div class="sw-body">
+        <p>Find a <code>link-card placeholder</code> block in the Recommended Links section. Remove the <code>placeholder</code> class, set the real <code>href</code>, and fill in the name, description, and URL display text. Save and push.</p>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+</div><!-- /res-wrap -->
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="foot-brand">VISION 1,000 · CCCC</div>
+      <p class="foot-desc">"The least of you will become a thousand." — Isa. 60:22</p>
+    </div>
+    <div>
+      <div class="foot-col-title">Navigation</div>
+      <ul class="foot-links">
+        <li><a href="/">← Vision Document</a></li>
+        <li><a href="/updates">Updates</a></li>
+        <li><a href="/equipping">Equipping</a></li>
+        <li><a href="/support">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">Sections</div>
+      <ul class="foot-links">
+        <li><a href="#vision-docs">Vision Documents</a></li>
+        <li><a href="#equipping">Equipping Materials</a></li>
+        <li><a href="#links">Recommended Links</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>Christ-Centered Community Church · Bacolod City, Philippines · Soli Deo Gloria</p>
+    <p class="foot-verse">"He who began a good work in you will carry it on to completion." — Phil. 1:6</p>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+</body>
+</html>

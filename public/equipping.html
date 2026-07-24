@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equipping · CCCC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/shared.css">
+<style>
+
+/* ── EQUIPPING LIBRARY PAGE ── */
+.page-body { padding-top: var(--nav-h); }
+
+/* ── HERO ── */
+.eq-hero {
+  background: var(--dark);
+  padding: 4rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 0px solid rgba(196,146,42,.15);
+}
+.eq-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C4922A' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.eq-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent);
+}
+.eq-hero-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.eq-hero-kicker {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.1rem;
+}
+.eq-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 300; color: #F5EDDA;
+  line-height: 1.05; margin-bottom: .5rem;
+}
+.eq-hero-title em {
+  display: block; font-style: italic;
+  color: rgba(240,234,214,.45); font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 400; margin-top: .9rem;
+}
+.eq-hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic;
+  color: rgba(232,221,184,.4);
+  max-width: 700px; line-height: 1.8;
+  margin-top: 1.5rem;
+}
+
+/* ── PREMISE ── */
+.eq-premise {
+  background: var(--black);
+  border-bottom: 1px solid rgba(196,146,42,.1);
+}
+.eq-premise-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.25rem 2rem;
+}
+.eq-premise p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-style: italic;
+  color: rgba(240,234,214,.5);
+  border-left: 3px solid rgba(196,146,42,.4);
+  padding-left: 1.25rem; line-height: 1.75;
+  margin: 0;
+}
+
+/* ── LIBRARY WRAP ── */
+.library-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem 2rem 6rem;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.75rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--bdr2);
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: .3;
+}
+
+/* ── CARD GRID ── */
+.readup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+/* ── READ-UP CARD (available) ── */
+.readup-card {
+  background: var(--white);
+  border: 1px solid var(--bdr2);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .2s, transform .2s;
+}
+.readup-card:hover {
+  border-color: rgba(196,146,42,.45);
+  transform: translateY(-2px);
+}
+.readup-card-top {
+  background: var(--dark);
+  padding: 1.75rem 1.75rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.readup-card-top::after {
+  content: '"';
+  position: absolute; right: 1rem; bottom: -1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px; line-height: 1;
+  color: rgba(196,146,42,.07);
+  pointer-events: none;
+}
+.readup-card-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .65rem;
+}
+.readup-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 500;
+  color: #F5EDDA; line-height: 1.2;
+  margin-bottom: .4rem;
+  position: relative; z-index: 1;
+}
+.readup-card-source {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-style: italic;
+  color: rgba(255,255,255,.38);
+}
+.readup-card-body {
+  padding: 1.25rem 1.75rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+.readup-card-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; color: var(--ink2);
+  line-height: 1.7; flex: 1;
+}
+.readup-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.readup-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 9.5px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 3px;
+}
+.badge-available {
+  background: rgba(196,146,42,.12);
+  color: var(--gold);
+  border: 1px solid rgba(196,146,42,.25);
+}
+.readup-read-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold);
+  display: flex; align-items: center; gap: 5px;
+}
+.readup-read-link svg {
+  width: 12px; height: 12px;
+  transition: transform .15s;
+}
+.readup-card:hover .readup-read-link svg {
+  transform: translateX(3px);
+}
+
+/* ── COMING SOON CARD ── */
+.readup-card-coming {
+  background: var(--white);
+  border: 1px solid var(--bdr2);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: .5;
+  pointer-events: none;
+}
+.readup-card-coming .readup-card-top {
+  background: var(--dark);
+  padding: 1.75rem 1.75rem 1.5rem;
+}
+.readup-card-coming .readup-card-eyebrow {
+  color: rgba(255,255,255,.3);
+}
+.readup-card-coming .readup-card-title {
+  color: rgba(255,255,255,.45);
+}
+.readup-card-coming .readup-card-source {
+  color: rgba(255,255,255,.2);
+}
+.readup-card-coming .readup-card-body {
+  padding: 1.25rem 1.75rem 1.5rem;
+}
+.badge-coming {
+  background: var(--off);
+  color: var(--ink3);
+  border: 1px solid var(--bdr2);
+}
+
+/* ── ABOUT STRIP ── */
+.eq-about {
+  background: var(--off);
+  border-top: 1px solid var(--bdr2);
+  border-bottom: 1px solid var(--bdr2);
+  margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+.eq-about-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 680px) {
+  .eq-about-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+.eq-about-item {}
+.eq-about-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: .5rem;
+}
+.eq-about-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px; font-style: italic;
+  color: var(--ink3); line-height: 1.65;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .readup-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .library-wrap { padding: 2.5rem 1.25rem 5rem; }
+}
+
+</style>
+</head>
+<body class="page-body">
+
+<script src="/assets/nav-inject.js"></script>
+<script>injectNav({ page: 'equipping' });</script>
+
+<!-- HERO -->
+<div class="eq-hero">
+  <div class="eq-hero-inner">
+    <div class="eq-hero-kicker">Equipping · CCCC Vision 1,000</div>
+    <h1 class="eq-hero-title">
+      Timeless Truth
+      <em>Study faithfully. Understand deeply. Communicate clearly.</em>
+    </h1>
+    <p class="eq-hero-desc">A growing library of biblical resources for those who want to know Scripture more deeply and share the Gospel more faithfully.</p>
+  </div>
+</div>
+
+<!-- PREMISE -->
+<div class="eq-premise">
+  <div class="eq-premise-inner">
+    <p>You don't need a theology degree to share the Gospel. You need a story to enter through — and the first witnesses left us nine of them.</p>
+  </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<div class="eq-about">
+  <div class="eq-about-inner">
+    <div class="eq-about-item">
+      <div class="eq-about-label">What this is</div>
+      <p class="eq-about-text">A library of biblical studies, devotionals, teachings, and resources — written to be read, studied, and shared.</p>
+    </div>
+    <div class="eq-about-item">
+      <div class="eq-about-label">Who it's for</div>
+      <p class="eq-about-text">Believers who want to go deeper into Scripture and disciples learning to communicate the Gospel with clarity.</p>
+    </div>
+    <div class="eq-about-item">
+      <div class="eq-about-label">How it grows</div>
+      <p class="eq-about-text">New resources are added as they are written. Every read-up stands on its own — come back often.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LIBRARY MAIN -->
+<main class="library-wrap">
+
+  <div class="readup-grid">
+
+    <!-- CARD 1 — AVAILABLE -->
+    <a class="readup-card" href="/equipping/the-god-you-almost-know.html">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Witnessing Principle you can apply</p>
+        <h2 class="readup-card-title">The God You Almost Know</h2>
+        <p class="readup-card-source">Acts 17:16–34 — Paul in Athens</p>
+      </div>
+      <div class="readup-card-body">
+        <p class="readup-card-desc">How do you tell a crowd of philosophers about a God they've never heard of? Paul found an altar they had already built — to an unknown god — and walked through the open door.</p>
+        <div class="readup-card-footer">
+          <span class="readup-badge badge-available">Available</span>
+          <span class="readup-read-link">
+            Read
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </a>
+    
+    <!-- CARD 2 — COMING -->
+    <a class="readup-card" href="/equipping/theotokos.html">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Historical Christology</p>
+        <h2 class="readup-card-title">What's in a Name?</h2>
+        <p class="readup-card-source">Ephesus 431 A.D.</p>
+        </div>
+      <div class="readup-card-body">
+        <p class="readup-card-desc">In AD 431, a church council met in the city of Ephesus over a dispute that, on the surface, seemed to be about what to call Mary. One side wanted to call her Theotokos.."</p>
+        <div class="readup-card-footer">
+          <span class="readup-badge badge-available">Available</span>
+          <span class="readup-read-link">
+            Read
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 3 — COMING -->
+    <a class="readup-card" href="/equipping/Yes-He-Did-Say.html">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Devotional</p>
+        <h2 class="readup-card-title">Yes He Did Say!</h2>
+        <p class="readup-card-source">July 15, 2026</p>
+        </div>
+      <div class="readup-card-body">
+        <p class="readup-card-desc">Before there was anxiety, before the first sleepless night, before the weight of wondering why am I here — there was a garden."</p>
+        <div class="readup-card-footer">
+          <span class="readup-badge badge-available">Available</span>
+          <span class="readup-read-link">
+            Read
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- CARD 4 — COMING -->
+    <div class="readup-card-coming">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Lesson 4 · Bible Study</p>
+        <h2 class="readup-card-title">The Water I've Been Looking For</h2>
+        <p class="readup-card-source">John 4 — Jesus and the Samaritan Woman</p>
+      </div>
+      <div class="readup-card-body">
+        <span class="readup-badge badge-coming">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- CARD 5 — COMING -->
+    <div class="readup-card-coming">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Lesson 5 · Bible Study</p>
+        <h2 class="readup-card-title">Born of What You Cannot See</h2>
+        <p class="readup-card-source">John 3 — Jesus and Nicodemus</p>
+      </div>
+      <div class="readup-card-body">
+        <span class="readup-badge badge-coming">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- CARD 6 — COMING -->
+    <div class="readup-card-coming">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Lesson 6 · Bible Study</p>
+        <h2 class="readup-card-title">Seated, Then Sent</h2>
+        <p class="readup-card-source">Ephesians — Paul's letter to the church at Ephesus</p>
+      </div>
+      <div class="readup-card-body">
+        <span class="readup-badge badge-coming">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- CARD 7 — COMING -->
+    <div class="readup-card-coming">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Lesson 7 · Bible Study</p>
+        <h2 class="readup-card-title">The Gospel in Plain Terms</h2>
+        <p class="readup-card-source">1 Corinthians — Paul's letter to the church at Corinth</p>
+      </div>
+      <div class="readup-card-body">
+        <span class="readup-badge badge-coming">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- CARD 8 — COMING -->
+    <div class="readup-card-coming">
+      <div class="readup-card-top">
+        <p class="readup-card-eyebrow">Lesson 8 · Bible Study</p>
+        <h2 class="readup-card-title">The Righteousness That Arrives</h2>
+        <p class="readup-card-source">Romans 1–3 — Paul's letter to the church at Rome</p>
+      </div>
+      <div class="readup-card-body">
+        <span class="readup-badge badge-coming">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+  <!-- END WITNESSES SERIES -->
+
+  <!--
+  ════════════════════════════════════════════════════════════
+  HOW TO ADD A NEW READ-UP (guide for Melv)
+  ════════════════════════════════════════════════════════════
+
+  WHEN A NEW READ-UP IS READY:
+  1. Duplicate /equipping/the-god-you-almost-know.html
+  2. Rename it to match your title, e.g. /equipping/no-outsiders.html
+  3. Fill in the header, body content, and footer details
+  4. In this file (equipping.html), change the matching card from:
+       <div class="readup-card-coming"> ... </div>
+     to a linked <a class="readup-card" href="/equipping/your-file.html">
+     and add a short description paragraph in the card body.
+  5. Change badge-coming to badge-available.
+  6. Save and push to GitHub.
+
+  TO ADD A NEW SERIES OR STANDALONE READ-UP:
+  1. Add a new <div class="section-label"> above the new set of cards.
+  2. Add the card(s) inside a new <div class="readup-grid"> block.
+  ════════════════════════════════════════════════════════════
+  -->
+
+</main>
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="foot-brand">EQUIPPING · CCCC</div>
+      <p class="foot-desc">"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses." — Acts 1:8</p>
+    </div>
+    <div>
+      <div class="foot-col-title">Navigation</div>
+      <ul class="foot-links">
+        <li><a href="/">← Vision Document</a></li>
+        <li><a href="/updates">Updates</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/support">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">Witnesses</div>
+      <ul class="foot-links">
+        <li><a href="/equipping/the-god-you-almost-know.html">Lesson 1 — Available</a></li>
+        <li><a href="#" style="opacity:.4">Lessons 2–8 — Coming soon</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>Christ-Centered Community Church · Bacolod City, Philippines · Soli Deo Gloria</p>
+    <p class="foot-verse">"The least of you will become a thousand." — Isa. 60:22</p>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+
+</body>
+</html>

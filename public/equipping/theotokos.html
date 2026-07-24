@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What's in a Name? — CCCC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #1a1812;
+      --surface:   #221f18;
+      --parchment: #f0e8d5;
+      --gold:      #c9a84c;
+      --gold-dim:  #7a6230;
+      --text:      #e8dfc8;
+      --muted:     #9a8f76;
+      --rule:      #3a3426;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 1px solid var(--rule);
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--parchment);
+      max-width: 680px;
+      margin: 0 auto 0.9rem;
+    }
+
+    header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .deck {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* ── Article body ── */
+    article {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    p { margin-bottom: 1.4rem; }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--parchment);
+      margin: 2.6rem 0 0.8rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+.reader-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  margin-bottom: 3rem;
+  opacity: .75;
+  transition: opacity .15s;
+}
+
+.reader-back:hover {
+  opacity: 1;
+}
+
+.reader-back svg {
+  width: 14px;
+  height: 14px;
+}
+    /* ── FOOTER NAV ── */
+.reader-footer-nav {
+  background: var(--off);
+  border-top: 1px solid var(--bdr2);
+  padding: 2rem;
+  text-align: center;
+}
+
+.reader-footer-nav p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink3);
+  margin-bottom: .85rem;
+}
+
+.reader-footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border: 1px solid rgba(196,146,42,.3);
+  padding: .55rem 1.1rem;
+  border-radius: 4px;
+  transition: background .15s;
+}
+
+.reader-footer-nav a:hover {
+  background: rgba(196,146,42,.08);
+}
+
+    /* Pull quote */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      margin: 2.2rem 0;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border-radius: 0 4px 4px 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.65;
+    }
+
+    blockquote cite {
+      display: block;
+      font-size: 0.8rem;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.08em;
+      color: var(--gold-dim);
+      margin-top: 0.6rem;
+    }
+
+    /* Verdict box */
+    .verdict {
+      background: var(--surface);
+      border: 1px solid var(--gold-dim);
+      border-radius: 6px;
+      padding: 1.4rem 1.6rem;
+      margin: 2.4rem 0;
+    }
+
+    .verdict-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.7rem;
+    }
+
+    .verdict p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    /* Bottom rule */
+    .end-rule {
+      text-align: center;
+      color: var(--gold-dim);
+      margin-top: 3rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.3em;
+    }
+
+    /* Meta / byline */
+    .byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-top: 1.1rem;
+    }
+
+    strong { color: var(--parchment); font-weight: 600; }
+    em { color: var(--gold); font-style: italic; }
+
+    @media (max-width: 600px) {
+      body { font-size: 1.05rem; }
+      header { padding: 1.6rem 1rem 1.2rem; }
+      article { padding: 2rem 1rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Theology for the Church</p>
+    <h1>What's in a Name?<br/><em>Theotokos</em> and the Question Behind the Question</h1>
+    <p class="deck">An ancient debate about Mary turns out to be entirely about Jesus.</p>
+    <p class="byline">CCCC &nbsp;·&nbsp; Christology Series</p>
+  </header>
+
+  <a class="reader-back" href="/equipping.html">
+  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13 8H3M7 12l-4-4 4-4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+  Back to Equipping
+</a>
+
+  <article>
+
+    <p>In AD 431, a church council met in the city of Ephesus over a dispute that, on the surface, seemed to be about what to call Mary. One side wanted to call her <em>Theotokos</em> — a Greek word meaning "God-bearer" or "Mother of God." The other side preferred <em>Christotokos</em> — "Christ-bearer." Simple enough, right?</p>
+
+    <p>Not quite. The two words were symptoms of two very different understandings of who Jesus is.</p>
+
+    <h2>The Man Who Started It</h2>
+
+    <p>Nestorius was the Patriarch of Constantinople — one of the most important church leaders of his day. He was not a bad man, and he wasn't trying to undermine the faith. He had a reasonable concern: the title "Mother of God" sounded philosophically strange. How can an eternal, infinite God have a mother? He wanted to protect the majesty of God from what felt like a clumsy phrase.</p>
+
+    <p>So he proposed <em>Christotokos</em> — "Bearer of Christ." More careful. More precise. Mary gave birth to Jesus the Messiah, not to the eternal God himself.</p>
+
+    <p>It sounded sensible. But a theologian named Cyril of Alexandria saw the problem immediately.</p>
+
+    <h2>The Real Issue</h2>
+
+    <p>Cyril's argument was this: the moment you say Mary gave birth to <em>Christ</em> but <strong>not</strong> to the <em>Son of God</em>, you've quietly split Jesus into two separate persons — a human one and a divine one, loosely joined together like a hand inside a glove.</p>
+
+    <blockquote>
+      The debate was never really about Mary.<br/>
+      It was about whether Jesus is truly <em>one person</em> — or two.
+      <cite>— The Council of Ephesus, AD 431</cite>
+    </blockquote>
+
+    <p>If Jesus is two persons, then the one who was born, who suffered, and who died on the cross was the <em>human</em> person — and the divine Son of God was somehow standing apart from all of it. Which means the cross doesn't carry the weight we need it to carry.</p>
+
+    <p>But if Jesus is <strong>one person</strong> — fully God and fully human, inseparably united — then to give birth to him <em>is</em> to give birth to God incarnate. <em>Theotokos</em> protects that truth. It keeps Jesus whole.</p>
+
+    <h2>So Was Christotokos Wrong?</h2>
+
+    <p>Here's where it gets nuanced — and it's worth getting right.</p>
+
+    <p>The Council of Ephesus did not ban the word <em>Christotokos</em>. The word itself isn't false. Mary <em>did</em> bear Christ. The problem was what Nestorius <em>meant</em> by preferring it — the theology hiding underneath his word choice. He preferred it because, in his mind, it kept the divine and human in Jesus safely separated.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">The Ruling in Plain Terms</p>
+      <p>In the hands of someone who believes Jesus is one unified person, both <em>Theotokos</em> and <em>Christotokos</em> can be used faithfully together. What the Council condemned was the <strong>theology behind Nestorius's preference</strong> — not the word itself.</p>
+    </div>
+
+    <p>Think of it this way: a title can be used as a window or as a wall. Nestorius was using <em>Christotokos</em> as a wall — to keep the divine and human in Christ at arm's length. The Council insisted that no wall belongs there.</p>
+
+    <h2>Why It Still Matters</h2>
+
+    <p>This isn't ancient trivia. The question of whether Jesus is truly, completely one person — God and man, permanently united — sits at the very heart of the gospel.</p>
+
+    <p>It means the one who held the nails was the same one who spoke the universe into existence. It means the death on Calvary was not merely a human tragedy but a divine act of rescue. It means when we pray, we are not reaching for a distant God who watched the cross from afar — we are speaking to the one who was <em>in</em> it.</p>
+
+    <p>The church in Ephesus didn't just defend a title for Mary. They defended the wholeness of Jesus — and with it, the wholeness of the hope we carry.</p>
+
+    <div class="end-rule">· · ·</div>
+
+  </article>
+  <!-- FOOTER NAV -->
+<div class="reader-footer-nav">
+  <p>Continue exploring the Equipping library.</p>
+  <a href="/equipping.html">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to Equipping
+  </a>
+</div>
+  <script src="/assets/nav.js"></script>
+</body>
+</html>

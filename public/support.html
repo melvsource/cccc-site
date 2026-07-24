@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support · CCCC Vision 1,000</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/shared.css">
+<style>
+.page-body { padding-top: var(--nav-h); }
+
+/* HERO */
+.sup-hero {
+  background: var(--dark);
+  padding: 64px 2rem 56px;
+  position: relative; overflow: hidden;
+}
+.sup-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold2) 50%, var(--gold) 70%, transparent);
+}
+.sup-hero-inner { max-width: var(--max); margin: 0 auto; }
+.sup-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 60px); font-weight: 300;
+  color: #F5EDDA; line-height: 1.05; margin-bottom: .35rem;
+}
+.sup-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-style: italic; color: rgba(240,234,214,.42);
+  max-width: 520px; line-height: 1.65;
+}
+
+/* MAIN LAYOUT */
+.sup-wrap {
+  max-width: var(--max); margin: 0 auto;
+  padding: 4rem 2rem 5rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+}
+@media (max-width: 720px) { .sup-wrap { grid-template-columns: 1fr; } }
+
+/* SECTION LABEL */
+.section-label {
+  font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.25rem; padding-bottom: .65rem;
+  border-bottom: 1px solid var(--bdr2);
+}
+
+/* GIVING BLOCK */
+.giving-block {
+  border: 1px solid rgba(196,146,42,.25);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Top Section */
+.giving-top {
+  background: var(--dark);
+  padding: 2.5rem 2rem;
+}
+
+/* Middle Section (PayPal) */
+.giving-middle {
+  background: #ffffff;   /* ← Change this to any lighter color */
+  padding: 1.25rem;
+  text-align: center;
+}
+
+/* Bottom Section */
+.giving-bottom {
+  background: var(--dark);
+
+}
+
+.giving-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-style: italic; color: rgba(240,234,214,.55);
+  line-height: 1.68; margin-bottom: 1.5rem;
+  border-left: 3px solid rgba(196,146,42,.4); padding-left: 1.1rem;
+}
+.giving-verse cite {
+  display: block; font-family: 'Inter', sans-serif; font-size: 9.5px;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+  margin-top: .6rem; font-style: normal;
+}
+.giving-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16.5px; color: rgba(240,234,214,.55); line-height: 1.72; margin-bottom: 2rem;
+}
+.paypal-note {
+  font-family: 'Inter', sans-serif; font-size: 10px;
+  text-align: center; margin-top: 0rem;
+  line-height: 1.50;font-style: italic; color: rgb(4, 3, 0);
+}
+
+/* GIVING WAYS */
+.giving-alt {
+  background: rgba(196,146,42,.06);
+  border: 1px solid rgba(196,146,42,.18);
+  border-radius: 8px; padding: 1.4rem 1.6rem; margin-top: 1.5rem;
+}
+.giving-alt-title {
+  font-family: 'Inter', sans-serif; font-size: 9.5px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--gold2);
+  margin-top: .85rem; margin-bottom: .85rem;
+}
+.giving-alt p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; color: rgba(240,234,214,.45); line-height: 1.65; margin-bottom: .5rem;
+  
+}
+.giving-alt p:last-child { margin-bottom: 0 }
+
+/* CONTACT BLOCK */
+.contact-block { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.contact-card {
+  background: var(--white); border: 1px solid var(--bdr2);
+  border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+  padding: 1.5rem 1.75rem;
+}
+.contact-card-title {
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--ink); margin-bottom: .5rem; letter-spacing: .02em;
+}
+.contact-card p {
+  font-family: 'Cormorant Garamond', serif; font-size: 16px;
+  color: var(--ink2); line-height: 1.65; margin-bottom: .5rem;
+}
+.contact-card p:last-child { margin-bottom: 0; }
+.contact-card a {
+  color: var(--gold); text-decoration: none; font-weight: 500;
+}
+.contact-card a:hover { text-decoration: underline; }
+.contact-card .placeholder-note {
+  font-family: 'Inter', sans-serif; font-size: 10px;
+  color: var(--ink3); background: var(--off);
+  border-radius: 3px; padding: 4px 10px; display: inline-block; margin-top: .35rem;
+}
+
+/* VERSE BAND */
+.verse-band {
+  background: var(--black);
+  border-top: 1px solid rgba(196,146,42,.12);
+  border-bottom: 1px solid rgba(196,146,42,.12);
+  padding: 2.5rem 2rem; text-align: center;
+}
+.verse-band p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 24px); font-style: italic;
+  color: rgba(240,234,214,.45); max-width: 680px; margin: 0 auto .6rem; line-height: 1.68;
+}
+.verse-band cite {
+  font-family: 'Inter', sans-serif; font-size: 9.5px; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--gold); font-style: normal;
+}
+</style>
+</head>
+<body class="page-body" style="background:var(--off)">
+
+<script src="/assets/nav-inject.js"></script>
+<script>injectNav({ page: 'support' });</script>
+
+<!-- HERO -->
+<div class="sup-hero">
+  <div class="sup-hero-inner">
+    <div class="eyebrow">Contact &amp; Support</div>
+    <h1 class="sup-hero-title">Partner with the <em style="color:var(--gold2);font-style:normal">Vision</em></h1>
+    <p class="sup-hero-sub">Every gift given to CCCC is an act of participation in what God is building — one life, one family, one community at a time.</p>
+  </div>
+</div>
+
+<!-- VERSE BAND -->
+<div class="verse-band">
+  <p>"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+  <cite>2 Corinthians 9:7</cite>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="sup-wrap">
+
+  <!-- LEFT: GIVING -->
+  <div>
+    <div class="section-label">Give</div>
+
+    <div class="giving-top">
+      <p class="giving-verse">
+        "Command them to do good, to be rich in good deeds, and to be generous and willing to share. In this way they will lay up treasure for themselves as a firm foundation for the coming age."
+        <cite>1 Timothy 6:18–19</cite>
+      </p>
+      <p class="giving-desc">Gifts to CCCC support the livelihood programs, elder and deacon ministry, the school vision, and the ongoing work of making disciples in Bacolod City and beyond. Every contribution is stewarded with accountability and gratitude.</p>
+<div class="giving-middle">
+  <p class="paypal-note">
+    Secure giving via PayPal · You do not need a PayPal account to give by card
+  </p>
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAA35Iy5FLhJWR3fqU22EQeE29YdVMiJ1PKU8-ZrjFxI3YSfy-im9ersxGWngysXxHwNPPzGzVnHPE3994&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+
+  <div id="paypal-container-UECCUZCTREBTQ"></div>
+
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "UECCUZCTREBTQ",
+    }).render("#paypal-container-UECCUZCTREBTQ")
+  </script>
+
+</div>
+<!-- BOTTOM SECTION -->
+      <div class="giving-desc">
+        <div class="giving-alt-title">Other ways to give</div>
+        <p>For local bank transfer or GCash, please reach out directly through the contact details below. We will provide account information upon request.</p>
+        <p>For recurring support or partnership inquiries, email us and we will respond within a few days.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: CONTACT -->
+  <div>
+    <div class="section-label">Contact</div>
+    <div class="contact-block">
+
+      <!-- EMAIL — replace with real address -->
+      <div class="contact-card">
+        <div class="contact-card-title">Email</div>
+        <p>For general inquiries, partnership questions, or to request more information about CCCC Vision 1,000:</p>
+        <!-- Replace the href and display text with your real email -->
+        <p><a href="mailto:your@email.com">your@email.com</a></p>
+        <span class="placeholder-note">← Replace with your real email address</span>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="contact-card">
+        <div class="contact-card-title">Location</div>
+        <p>Christ-Centered Community Church is based in Bacolod City, Western Visayas, Philippines.</p>
+        <p>Meeting details are shared with members and interested visitors through personal invitation.</p>
+      </div>
+
+      <!-- RESPONSE NOTE -->
+      <div class="contact-card">
+        <div class="contact-card-title">Response time</div>
+        <p>We aim to respond to all messages within 3–5 days. For urgent pastoral matters, please note that in your message.</p>
+      </div>
+
+      <!-- SOCIAL — add links when ready -->
+      <div class="contact-card">
+        <div class="contact-card-title">Follow the community</div>
+        <p>Social media and community updates will be linked here as they become available.</p>
+        <!-- Uncomment and fill in when ready:
+        <p>
+          <a href="https://facebook.com/yourpage" target="_blank" rel="noopener">Facebook</a> ·
+          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
+        </p>
+        -->
+        <span class="placeholder-note">← Add social links when ready</span>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /sup-wrap -->
+
+<!-- FOOTER -->
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="foot-brand">VISION 1,000 · CCCC</div>
+      <p class="foot-desc">"He who began a good work in you will carry it on to completion." — Phil. 1:6</p>
+    </div>
+    <div>
+      <div class="foot-col-title">Navigation</div>
+      <ul class="foot-links">
+        <li><a href="/">← Vision Document</a></li>
+        <li><a href="/updates">Updates</a></li>
+        <li><a href="/equipping">Equipping</a></li>
+        <li><a href="/resources">Resources</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-title">Give</div>
+      <ul class="foot-links">
+        <!-- Replace # with your PayPal link -->
+        <li><a href="https://www.paypal.com/ncp/payment/UECCUZCTREBTQ?locale.x=en-US&country.x=US">Give via PayPal</a></li>
+        <li><a href="mailto:your@email.com">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>Christ-Centered Community Church · Bacolod City, Philippines · Soli Deo Gloria</p>
+    <p class="foot-verse">"God loves a cheerful giver." — 2 Cor. 9:7</p>
+  </div>
+</footer>
+
+<script src="/assets/nav.js"></script>
+</body>
+</html>

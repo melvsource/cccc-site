@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CCCC</title>
+<script>
+// GitHub Pages clean URL redirect trick
+// Converts /updates → /#/updates then the index handles it
+// Simpler: just redirect to the .html version
+var path = window.location.pathname;
+var routes = {'/updates':'/updates.html','/equipping':'/equipping.html','/resources':'/resources.html','/support':'/support.html'};
+if (routes[path]) {
+  window.location.replace(routes[path]);
+} else {
+  window.location.replace('/');
+}
+</script>
+</head>
+<body></body>
+</html>
